@@ -1,14 +1,23 @@
 <!doctype html>
-<title>Gallery</title>
+<html lang="en">
+
+
+<!-- === Header Starts === -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>SketchXAI</title>
+
+  <link href="./assets/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/font.css" rel="stylesheet" type="text/css">
+  <link href="./assets/style.css" rel="stylesheet" type="text/css">
+</head>
+<!-- === Header Ends === -->
+
 <style>
-h1 { font-family: "Dejavu Sans";}
-h3 { font-family: "Dejavu Sans";}
-p { font-family: "Dejavu Sans";}
-blockquote { font-family: "Dejavu Sans";}
-pre { font-family: "Dejavu Sans";}
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(620px, 1fr));
+  grid-template-columns: repeat(2, minmax(620px, 1fr));
   grid-gap: 20px;
   align-items: center;
   padding-left: 10px;
@@ -19,11 +28,11 @@ pre { font-family: "Dejavu Sans";}
   max-width: 100%;
   position: center;
   margin-left: 10px;
-  margin-bottom: 49px;
+  margin-top: -265px;
 }
 .grid_t {
   display: grid;
-  grid-template-columns: repeat(2, minmax(940px, 1fr));
+  grid-template-columns: repeat(1, minmax(940px, 1fr));
   grid-gap: 20px;
   align-items: center;
   padding-left: 10px;
@@ -34,12 +43,12 @@ pre { font-family: "Dejavu Sans";}
   max-width: 100%;
   position: center;
   margin-left: 10px;
-  margin-bottom: 49px;
+  margin-top: -265px;
 }
 .box {
         height: 100px;
         text-align: center;
-        font-size: 50px;
+        font-size: 20pt;
         line-height:100px;
         margin: 0px;
 }
@@ -60,20 +69,134 @@ pre { font-family: "Dejavu Sans";}
 }
 </style>
 
-<body style="
-    margin: auto;
-    width: 100%;
-    min-width: 1920px;
-">
-  <p class="rp">NOTE: animations playing at 0.05x speed for the first few iterations for better visualisations.</p>
+<body>
 
-  <hr />
-  <div min-width="1920px" style="height: 100px;">
-    <p class="box">Recovery of SLI</p>
+
+<!-- === Home Section Starts === -->
+<div class="section">
+  <!-- === Title Starts === -->
+    <div class="title">
+      <b>SketchXAI: A First Look at Explainability for Human Sketches</b>
+    </div>
+  <!-- === Title Ends === -->
+  <div class="author">
+    <a href="http://tingxiangshuixie.com/" target="_blank">Zhiyu Qu</a><sup>1</sup>,&nbsp;
+    <a href="https://yulia.gryaditskaya.com/" target="_blank">Yulia Gryaditskaya</a><sup>2</sup>,&nbsp;
+    <a href="https://keli-sketchx.github.io/" target="_blank">Ke Li</a><sup>1, 2</sup>,&nbsp;
+    <a href="https://kyp-sketchx.github.io/" target="_blank">Kaiyue Pang</a><sup>1</sup>,&nbsp;
+    <a href="https://www.surrey.ac.uk/people/tao-xiang" target="_blank">Tao Xiang</a><sup>1</sup>,&nbsp;
+    <a href="http://sketchx.ai/" target="_blank">Yi-Zhe Song</a><sup>1</sup>
   </div>
+  <div class="institution">
+    <sup>1</sup>SketchX, CVSSP, University of Surrey, United Kingdom
+    <br>
+    <sup>2</sup>School of Artificial Intelligence, Beijing University of Posts and Telecommunications, China
+  </div>
+  <br>
+  <div class="institution">
+    Accepted by <a href="https://cvpr2023.thecvf.com/" target="_blank">CVPR 2023</a>
+  </div>
+  <div class="link">
+    <a href="" target="_blank">[Paper]</a>&nbsp;
+    <a href="" target="_blank">[Code]</a>
+  </div>
+  <div class="teaser">
+    <img src="figures/overview.png" style="width: 100%;">
+    <br>
+    <br>
+    <font size="3">
+      We demonstrate a new methodology for explaining AI decisions on human sketch data. Instead of one static explanation per instance as in existing works, our proposed method supports generating infinitely many explanation paths with each dynamically showcasing the inner working of an AI classifier. This dictates a deeper AI exposure and allows humans to enjoy a wider coverage on how AI functions, and therefore builds trust.
+    </font>
+  </div>
+</div>
+<!-- === Home Section Ends === -->
 
-  <hr />
-  <main class="grid">
+
+<!-- === Overview Section Starts === -->
+<div class="section">
+  <div class="title">Abstract</div>
+  <div class="body">
+    This paper, for the very first time, introduces human sketches to the landscape of XAI. 
+We argue that, sketch as a "human-centred" data form, represents a natural interface to study explainability. 
+We focus on cultivating sketch-specific explainability designs. 
+This starts by identifying strokes as a unique building block that offers a degree of flexibility in object construction and manipulation impossible in photos. 
+Following this, we design a simple explainability-friendly sketch encoder that accommodates intrinsic properties of strokes: shape, location, and order. 
+We then move on to define the first ever XAI task for sketch, that of stroke location inversion SLI. Just as we have heat maps for photos, and correlation matrices for text, SLI offers an explainability angle to sketch in terms of asking a network how well it can recover stroke locations of an unseen sketch. We offer qualitative results for readers to interpret, in the form of snapshots of the SLI process in the paper and videos here. A minor but interesting note is that, thanks to its sketch-specific design, our sketch encoder also yields the best sketch recognition accuracy to date, while having the smallest number of parameters.
+  </div>
+  <div class="link">
+    <a href="" target="_blank">[Paper]</a>&nbsp; &nbsp;
+    <a href="" target="_blank">[Supplementary]</a>&nbsp; &nbsp;
+	  <a href="" target="_blank">[Code]</a>&nbsp; &nbsp;
+    <a href="" target="_blank">[Dataset]</a>
+	  <!-- <a href="" target="_blank">[Presentation (TBD)]</a>&nbsp; &nbsp; -->
+  </div>
+</div>
+<!-- === Overview Section Ends === -->
+
+
+<!-- === Result Section Starts === -->
+<div class="section">
+  <div class="title">Method</div>
+  <br>
+  <div class="body">
+    <p style="text-align:center; font-size:23px; font-weight:bold">Framework Overview<p>
+    <img src="figures/framework.png" width="100%">
+    <br>
+    <br>
+    <font size="4">
+      We build a classifier a sketch classifier upon stroke vectors rather than raster pixels. All strokes are decomposed into three parts -- order, shape and location. We use a bidirectional LSTM, a linear model and a learnable time embedding matrix to encode such decomposed stroke representation respectively. The dashed line refers to the gradient flow of the location parameters when we generate explanations by SLI with a trained classifier.
+    </font>
+    <br>
+    <br>
+
+ <!--    <p style="text-align:center; font-size:23px; font-weight:bold">
+      Overall Introduction
+    <p>
+    <p style="text-align:center; font-size:20px">
+      (Or watch on <a href="https://www.bilibili.com/video/BV1gM4y1V7i7/" target="_blank">Bilibili</a>)
+      <br>
+      👇
+    <p> -->
+    <!-- Adjust the frame size based on the demo (EVERY project differs). -->
+    <!-- <div style="position: relative; padding-top: 50%; text-align: center;">
+      <iframe src="https://www.youtube.com/embed/gXk3TMceByY" frameborder=0
+              style="position: absolute; top: 1%; left: 5%; width: 90%; height: 100%;"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div> -->
+
+  </div>
+</div>
+<!-- === Result Section Ends === -->
+
+<!-- === Reference Section Starts === -->
+<div class="section">
+  <div class="bibtex">BibTeX</div>
+<pre>
+@inproceedings{qu2023sketchxai,
+  title={SketchXAI: A First Look at Explainability for Human Sketches},
+  author={Qu, Zhiyu and Gryaditskaya, Yulia and Li, Ke and Pang, Kaiyue and Xiang, Tao and Song, Yi-Zhe},
+  booktitle={CVPR},
+  year={2023}
+}
+</pre>
+  </div>
+</div>
+<!-- === Reference Section Ends === -->
+
+<!-- === Result Section Starts === -->
+<div class="section">
+  <div class="title">Visualisations</div>
+  <div class="body">
+    NOTE: animations playing at 0.05x speed for the first few iterations for better visualisations.
+    <br/>
+    <br/>
+
+    <div min-width="1080px" style="height: 80px;">
+      <p class="box">Recovery of SLI</p>
+    </div>
+
+    <main class="grid">
 
      <div class="container">
        <video width="400" height="300" controls>
@@ -83,33 +206,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/airplane/61.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/airplane/61.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/airplane/64.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/airplane/64.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/apple/50.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/apple/50.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/apple/75.mp4" type="video/mp4">
        </video>
        <img src="web_src/apple/75.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/apple/9.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/apple/9.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -119,33 +218,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/baseball_bat/50.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/baseball_bat/50.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/baseball_bat/73.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/baseball_bat/73.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/bed/66.mp4" type="video/mp4">
        </video>
        <img src="web_src/bed/66.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/bed/34.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/bed/34.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/bed/45.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/bed/45.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -155,39 +230,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/bicycle/5.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/bicycle/5.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/bicycle/9.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/bicycle/9.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/book/13.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/book/13.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/book/19.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/book/19.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/book/36.mp4" type="video/mp4">
        </video>
        <img src="web_src/book/36.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/bread/25.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/bread/25.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -197,57 +242,15 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/bread/80.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/bread/80.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/broom/19.mp4" type="video/mp4">
        </video>
        <img src="web_src/broom/19.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/broom/22.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/broom/22.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/broom/4.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/broom/4.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/camera/43.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/camera/43.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/camera/5.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/camera/5.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/camera/57.mp4" type="video/mp4">
        </video>
        <img src="web_src/camera/57.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/car/1.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/car/1.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/car/14.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/car/14.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -263,39 +266,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/cell_phone/0.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/cell_phone/0.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/cell_phone/60.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/cell_phone/60.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/chair/0.mp4" type="video/mp4">
        </video>
        <img src="web_src/chair/0.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/chair/28.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/chair/28.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/chair/6.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/chair/6.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/clock/2.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/clock/2.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -303,29 +276,12 @@ pre { font-family: "Dejavu Sans";}
        </video>
        <img src="web_src/clock/38.png" width="200" height="200" >
      </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/clock/7.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/clock/7.png" width="200" height="200" >
-     </div>
+
      <div class="container">
        <video width="400" height="300" controls>
          <source src="web_src/cloud/19.mp4" type="video/mp4">
        </video>
        <img src="web_src/cloud/19.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/cloud/5.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/cloud/5.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/cloud/94.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/cloud/94.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -335,39 +291,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/eye/2.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/eye/2.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/eye/8.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/eye/8.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/eyeglasses/16.mp4" type="video/mp4">
        </video>
        <img src="web_src/eyeglasses/16.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/eyeglasses/30.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/eyeglasses/30.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/eyeglasses/6.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/eyeglasses/6.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/face/27.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/face/27.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -377,33 +303,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/face/52.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/face/52.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/flower/16.mp4" type="video/mp4">
        </video>
        <img src="web_src/flower/16.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/flower/3.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/flower/3.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/flower/86.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/flower/86.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/headphones/15.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/headphones/15.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -413,27 +315,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/headphones/44.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/headphones/44.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/hot_dog/0.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/hot_dog/0.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/hot_dog/12.mp4" type="video/mp4">
        </video>
        <img src="web_src/hot_dog/12.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/hot_dog/26.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/hot_dog/26.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -443,39 +327,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/laptop/35.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/laptop/35.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/laptop/86.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/laptop/86.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/pants/24.mp4" type="video/mp4">
        </video>
        <img src="web_src/pants/24.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/pants/7.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/pants/7.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/pants/94.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/pants/94.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/shorts/16.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/shorts/16.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -485,39 +339,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/shorts/87.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/shorts/87.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/smiley_face/27.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/smiley_face/27.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/smiley_face/3.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/smiley_face/3.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/smiley_face/63.mp4" type="video/mp4">
        </video>
        <img src="web_src/smiley_face/63.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/snake/19.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/snake/19.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/snake/6.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/snake/6.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -533,33 +357,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/spider/5.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/spider/5.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/spider/53.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/spider/53.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/star/11.mp4" type="video/mp4">
        </video>
        <img src="web_src/star/11.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/star/29.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/star/29.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/star/89.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/star/89.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -569,33 +369,9 @@ pre { font-family: "Dejavu Sans";}
      </div>
      <div class="container">
        <video width="400" height="300" controls>
-         <source src="web_src/sun/38.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/sun/38.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/sun/5.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/sun/5.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/table/36.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/table/36.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
          <source src="web_src/table/53.mp4" type="video/mp4">
        </video>
        <img src="web_src/table/53.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/table/70.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/table/70.png" width="200" height="200" >
      </div>
      <div class="container">
        <video width="400" height="300" controls>
@@ -603,28 +379,16 @@ pre { font-family: "Dejavu Sans";}
        </video>
        <img src="web_src/tree/15.png" width="200" height="200" >
      </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/tree/17.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/tree/17.png" width="200" height="200" >
-     </div>
-     <div class="container">
-       <video width="400" height="300" controls>
-         <source src="web_src/tree/46.mp4" type="video/mp4">
-       </video>
-       <img src="web_src/tree/46.png" width="200" height="200" >
-     </div>
-
   </main>
+  <br/>
+  <br/>
+  <br/>
+  <div min-width="1080px" style="height: 80px;">
+    <p class="box">Transfer of SLI</p>
+  </div>
 
-  <div min-width="1920px" style="height: 50px;"></div>
-  <hr />
-  <p class="box" >Transfer of SLI</p>
-  <hr />
   <main class="grid_t">
     <p class="box_t" >chair -> broom</p>
-    <p class="box_t" >sun -> apple</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/chair/chair_s.mp4" type="video/mp4">
@@ -632,6 +396,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/chair/chair.png" width="200" height="200" >
       <img src="web_src/transfer/chair/chair_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >sun -> apple</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/sun/sun_s.mp4" type="video/mp4">
@@ -640,7 +405,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/sun/sun_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >bicycle -> camera</p>
-    <p class="box_t" >car -> bicycle</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/bicycle/bicycle_s.mp4" type="video/mp4">
@@ -648,6 +412,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/bicycle/bicycle.png" width="200" height="200" >
       <img src="web_src/transfer/bicycle/bicycle_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >car -> bicycle</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/car/car_s.mp4" type="video/mp4">
@@ -656,7 +421,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/car/car_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >tree -> cloud</p>
-    <p class="box_t" >airplane -> bed</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/tree/tree_241_s.mp4" type="video/mp4">
@@ -664,6 +428,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/tree/tree_241.png" width="200" height="200" >
       <img src="web_src/transfer/tree/tree_241_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >airplane -> bed</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/airplane/airplane_s.mp4" type="video/mp4">
@@ -672,7 +437,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/airplane/airplane_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >book -> pants</p>
-    <p class="box_t" >sun -> spider</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/book/book_s.mp4" type="video/mp4">
@@ -680,6 +444,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/book/book.png" width="200" height="200" >
       <img src="web_src/transfer/book/book_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >sun -> spider</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/sun/sun_110_s.mp4" type="video/mp4">
@@ -688,7 +453,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/sun/sun_110_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >bicycle -> eyeglasses</p>
-    <p class="box_t" >car -> face</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/bicycle/bicycle_183_s.mp4" type="video/mp4">
@@ -696,6 +460,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/bicycle/bicycle_183.png" width="200" height="200" >
       <img src="web_src/transfer/bicycle/bicycle_183_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >car -> face</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/car/car_117_s.mp4" type="video/mp4">
@@ -704,7 +469,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/car/car_117_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >sun -> spider</p>
-    <p class="box_t" >apple -> clock</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/sun/sun_111_s.mp4" type="video/mp4">
@@ -712,6 +476,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/sun/sun_111.png" width="200" height="200" >
       <img src="web_src/transfer/sun/sun_111_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >apple -> clock</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/apple/apple_103_s.mp4" type="video/mp4">
@@ -720,7 +485,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/apple/apple_103_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >sun -> spider</p>
-    <p class="box_t" >cell_phone -> book</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/sun/sun_116_s.mp4" type="video/mp4">
@@ -728,6 +492,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/sun/sun_116.png" width="200" height="200" >
       <img src="web_src/transfer/sun/sun_116_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >cell_phone -> book</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/cell_phone/cell_phone_132_s.mp4" type="video/mp4">
@@ -736,7 +501,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/cell_phone/cell_phone_132_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >spider -> bicycle</p>
-    <p class="box_t" >bed -> hot_dog</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/spider/spider_236_s.mp4" type="video/mp4">
@@ -744,15 +508,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/spider/spider_236.png" width="200" height="200" >
       <img src="web_src/transfer/spider/spider_236_t.png" width="200" height="200" >
     </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bed/bed_114_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bed/bed_114.png" width="200" height="200" >
-      <img src="web_src/transfer/bed/bed_114_t.png" width="200" height="200" >
-    </div>
     <p class="box_t" >bicycle -> spider</p>
-    <p class="box_t" >face -> clock</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/bicycle/bicycle_239_s.mp4" type="video/mp4">
@@ -760,6 +516,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/bicycle/bicycle_239.png" width="200" height="200" >
       <img src="web_src/transfer/bicycle/bicycle_239_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >face -> clock</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/face/face_194_s.mp4" type="video/mp4">
@@ -768,7 +525,6 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/face/face_194_t.png" width="200" height="200" >
     </div>
     <p class="box_t" >bicycle -> cell_phone</p>
-    <p class="box_t" >sun -> spider</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/bicycle/bicycle_120_s.mp4" type="video/mp4">
@@ -776,6 +532,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/bicycle/bicycle_120.png" width="200" height="200" >
       <img src="web_src/transfer/bicycle/bicycle_120_t.png" width="200" height="200" >
     </div>
+    <p class="box_t" >sun -> spider</p>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/sun/sun_23_s.mp4" type="video/mp4">
@@ -783,15 +540,7 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/sun/sun_23.png" width="200" height="200" >
       <img src="web_src/transfer/sun/sun_23_t.png" width="200" height="200" >
     </div>
-    <p class="box_t" >bed -> eye</p>
     <p class="box_t" >flower -> cloud</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bed/bed_106_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bed/bed_106.png" width="200" height="200" >
-      <img src="web_src/transfer/bed/bed_106_t.png" width="200" height="200" >
-    </div>
     <div class="container">
       <video width="500" height="300" controls>
         <source src="web_src/transfer/flower/flower_s.mp4" type="video/mp4">
@@ -799,229 +548,12 @@ pre { font-family: "Dejavu Sans";}
       <img src="web_src/transfer/flower/flower.png" width="200" height="200" >
       <img src="web_src/transfer/flower/flower_t.png" width="200" height="200" >
     </div>
-    <p class="box_t" >bicycle -> face</p>
-    <p class="box_t" >cloud -> face</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bicycle/bicycle_171_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bicycle/bicycle_171.png" width="200" height="200" >
-      <img src="web_src/transfer/bicycle/bicycle_171_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/cloud/cloud_285_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/cloud/cloud_285.png" width="200" height="200" >
-      <img src="web_src/transfer/cloud/cloud_285_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >bicycle -> camera</p>
-    <p class="box_t" >table -> bed</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bicycle/bicycle_121_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bicycle/bicycle_121.png" width="200" height="200" >
-      <img src="web_src/transfer/bicycle/bicycle_121_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/table/table_234_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/table/table_234.png" width="200" height="200" >
-      <img src="web_src/transfer/table/table_234_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >cell_phone -> bed</p>
-    <p class="box_t" >clock -> apple</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/cell_phone/cell_phone_167_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/cell_phone/cell_phone_167.png" width="200" height="200" >
-      <img src="web_src/transfer/cell_phone/cell_phone_167_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/clock/clock_115_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/clock/clock_115.png" width="200" height="200" >
-      <img src="web_src/transfer/clock/clock_115_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >table -> flower</p>
-    <p class="box_t" >car -> camera</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/table/table_178_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/table/table_178.png" width="200" height="200" >
-      <img src="web_src/transfer/table/table_178_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/car/car_148_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/car/car_148.png" width="200" height="200" >
-      <img src="web_src/transfer/car/car_148_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >bed -> face</p>
-    <p class="box_t" >bread -> table</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bed/bed_196_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bed/bed_196.png" width="200" height="200" >
-      <img src="web_src/transfer/bed/bed_196_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bread/bread_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bread/bread.png" width="200" height="200" >
-      <img src="web_src/transfer/bread/bread_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >apple -> clock</p>
-    <p class="box_t" >spider -> bicycle</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/apple/apple_276_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/apple/apple_276.png" width="200" height="200" >
-      <img src="web_src/transfer/apple/apple_276_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/spider/spider_113_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/spider/spider_113.png" width="200" height="200" >
-      <img src="web_src/transfer/spider/spider_113_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >hot_dog -> laptop</p>
-    <p class="box_t" >car -> bicycle</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/hot_dog/hot_dog_143_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/hot_dog/hot_dog_143.png" width="200" height="200" >
-      <img src="web_src/transfer/hot_dog/hot_dog_143_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/car/car_270_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/car/car_270.png" width="200" height="200" >
-      <img src="web_src/transfer/car/car_270_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >bicycle -> face</p>
-    <p class="box_t" >bicycle -> sun</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bicycle/bicycle_55_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bicycle/bicycle_55.png" width="200" height="200" >
-      <img src="web_src/transfer/bicycle/bicycle_55_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bicycle/bicycle_219_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bicycle/bicycle_219.png" width="200" height="200" >
-      <img src="web_src/transfer/bicycle/bicycle_219_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >airplane -> face</p>
-    <p class="box_t" >eyeglasses -> bicycle</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/airplane/airplane_251_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/airplane/airplane_251.png" width="200" height="200" >
-      <img src="web_src/transfer/airplane/airplane_251_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/eyeglasses/eyeglasses_291_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/eyeglasses/eyeglasses_291.png" width="200" height="200" >
-      <img src="web_src/transfer/eyeglasses/eyeglasses_291_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >airplane -> bed</p>
-    <p class="box_t" >spider -> face</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/airplane/airplane_260_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/airplane/airplane_260.png" width="200" height="200" >
-      <img src="web_src/transfer/airplane/airplane_260_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/spider/spider_255_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/spider/spider_255.png" width="200" height="200" >
-      <img src="web_src/transfer/spider/spider_255_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >apple -> clock</p>
-    <p class="box_t" >sun -> spider</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/apple/apple_189_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/apple/apple_189.png" width="200" height="200" >
-      <img src="web_src/transfer/apple/apple_189_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/sun/sun_120_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/sun/sun_120.png" width="200" height="200" >
-      <img src="web_src/transfer/sun/sun_120_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >face -> smiley_face</p>
-    <p class="box_t" >sun -> spider</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/face/face_117_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/face/face_117.png" width="200" height="200" >
-      <img src="web_src/transfer/face/face_117_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/sun/sun_115_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/sun/sun_115.png" width="200" height="200" >
-      <img src="web_src/transfer/sun/sun_115_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >laptop -> chair</p>
-    <p class="box_t" >smiley_face -> clock</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/laptop/laptop_202_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/laptop/laptop_202.png" width="200" height="200" >
-      <img src="web_src/transfer/laptop/laptop_202_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/smiley_face/smiley_face_110_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/smiley_face/smiley_face_110.png" width="200" height="200" >
-      <img src="web_src/transfer/smiley_face/smiley_face_110_t.png" width="200" height="200" >
-    </div>
-    <p class="box_t" >bicycle -> face</p>
-    <p class="box_t" >spider -> eyeglasses</p>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/bicycle/bicycle_199_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/bicycle/bicycle_199.png" width="200" height="200" >
-      <img src="web_src/transfer/bicycle/bicycle_199_t.png" width="200" height="200" >
-    </div>
-    <div class="container">
-      <video width="500" height="300" controls>
-        <source src="web_src/transfer/spider/spider_108_s.mp4" type="video/mp4">
-      </video>
-      <img src="web_src/transfer/spider/spider_108.png" width="200" height="200" >
-      <img src="web_src/transfer/spider/spider_108_t.png" width="200" height="200" >
-    </div>
   </main>
+
+  </div>
+</div>
+<!-- === Result Section Ends === -->
+
+
 </body>
+</html>
